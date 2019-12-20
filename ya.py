@@ -20,18 +20,18 @@ async def on_message(message):
     
     if message.author.bot:
         return None
-    elif message.content == "콤보시작!":
+    if message.content == "콤보시작!":
         await app.send_message(message.channel,"하나!")
-        msg = await app.wait_for_message(timeout=8.0,author=message.author)
-        if msg is not "둘!":
-            await app.send_message(message.channel,"눈치없냐?")
-            return
-        else:
-            await app.send_message(message.channel,"셋!")
-
+    if message.content == "하나!":
+        await app.send_message(message.channel, "둘!")       
+    if message.content == "둘!":
+         await app.send_message(message.channel, "셋!")
+    if message.content == "셋!":
+         await app.send_message(message.channel, "야!")
+    if message.content == "야!":
+        await app.send_message(message.channel,"이분 최소 배우신 분 ㅇㅈ")
     if message.content == "!미간":
         await app.send_message(message.channel,"이거슨 제 미간이 아니라 찌찌입니다.")
-
     if message.content == "!김나":
         await app.send_message(message.channel,"성방!")
 access_token = os.environ["BOT_TOKEN"]
