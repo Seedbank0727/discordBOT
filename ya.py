@@ -1,9 +1,10 @@
 import asyncio
 import discord
+import os
+
 
 app = discord.Client()
 
-token = "NTc4NTQxODc1MzM4ODA1Mjcw.XfylRg.WpwbIQqpcphF1HEJ4ZbroeDZDZc"
 
 @app.event
 async def on_ready():
@@ -33,5 +34,5 @@ async def on_message(message):
 
     if message.content == "!김나":
         await app.send_message(message.channel,"성방!")
-
-app.run(token)
+access_token = os.environ["BOT_TOKEN"]
+app.run(access_token)
